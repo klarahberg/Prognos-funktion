@@ -121,7 +121,7 @@ class BoatApp:
         
         select_date_button = ft.ElevatedButton(
             "Välj datum",
-            on_click=lambda _: date_picker.pick_date(),
+            on_click=lambda _: self.open_date_picker(date_picker),
             icon=ft.icons.CALENDAR_TODAY,
             style=ft.ButtonStyle(
                 color=ft.colors.WHITE,
@@ -170,6 +170,10 @@ class BoatApp:
                 spacing=20
             )
         )
+
+    def open_date_picker(self, date_picker):
+        date_picker.open = True
+        date_picker.update()
     
     def handle_date_selected(self, e, time_dropdown, prediction_text):
         if e.data:
